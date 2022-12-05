@@ -18,7 +18,8 @@ public class DmlDemo {
     //2.set field values
     spNew.project_name__c = 'Teach DML to batch 11';
     spNew.description__c = 'Everybody is doing great. Keep it up. ';
-    //3 dml
+    //3 dml 
+    //hmmm
     insert spNew;
     }
    
