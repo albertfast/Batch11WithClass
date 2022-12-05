@@ -1,0 +1,1 @@
+SELECT id,name, subject__c, priority__c,status__c,Salesforce_Project__r.name,Salesforce_Project__r.project_name__c from salesforce_ticket__c

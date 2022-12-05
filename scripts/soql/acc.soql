@@ -1,0 +1,4 @@
+SELECT id, name from Account
+SELECT id, name, project_name__c from salesforce_Project__c
+
+SELECT id, name, birthdate from contact
