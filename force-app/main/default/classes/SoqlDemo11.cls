@@ -4,7 +4,7 @@ public class SoqlDemo11 {
     List<Account>  accList =  [select id,name from account where Industry =: indstry];
     System.debug(accList);
     integer recordSayisi=accList.size();
-        return recordSayisi; // return integer oldusu icin methodum void olamaz intehere ceviririz.
+        return recordSayisi; // return integer oldusu icin methodum void olamaz integere ceviririz.
     }
     //Accountlardan industry Energy olanlari contactlari ile beraber listeleyin ve her bir recordu tek tek yazin..
     public static void accountWithContacts() {
@@ -18,4 +18,5 @@ public class SoqlDemo11 {
             }
         }
     }
+
 }
