@@ -1,12 +1,22 @@
 trigger ContactTrigger on Contact (before insert, before update,after insert, after update){
-if (trigger.isAfter) {
-    System.debug('new inserted record ==> '+ trigger.new);
+    if (Trigger.isBefore) {
+        if (Trigger.isUpdate) {
+            system.debug('we are in before update trigger.');
+            ContactTriggerHandler.contactUpdateValidation1(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
+        }
+    }
+
+
+
+
+
+
+
+
+/*    if (trigger.isAfter) {
+    //System.debug('new inserted record ==> '+ trigger.new);
 }
-
-
-
-
-/*    if (trigger.isBefore) {
+   if (trigger.isBefore) {
     System.debug('We are in BEFORE. Not Saved');
     if (trigger.isInsert) {
         System.debug('we are in before insert trigger.');        
