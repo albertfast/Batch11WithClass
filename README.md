@@ -19,3 +19,4 @@ The `sfdx-project.json` file contains useful configuration information for your 
 
 
 ## random update , all good
+group8 ogreniyor peki ya siz ?

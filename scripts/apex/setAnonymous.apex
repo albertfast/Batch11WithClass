@@ -53,7 +53,7 @@ Boolean isContainsSali = (!days.contains('Sali'));
 System.debug(' Not is contains '+ isContainsSali);
 
 Set<String>dayNew= new Set<String>();
-dayNew.addAll(days);
+//dayNew.addAll(days);
 System.debug(dayNew);
 Set<String>upperCaseDay= SetDemo.capitalizeSet(dayNew);
 System.debug(upperCaseDay);
