@@ -1,9 +1,14 @@
 trigger AccountTrigger on Account (before insert, before update,after insert, after update) {
   
     if (trigger.isBefore) {
-        System.debug('Before insert/update trigger on Account object');
         AccountTriggerHandler.updateDescription(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
     }
+    if (trigger.isAfter && trigger.isUpdate) {
+        //Here we call handler method to update all contacts VIP
+        AccountTriggerHandler.updateVIPforContacts(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
+    }
+
+  
   
   
   
