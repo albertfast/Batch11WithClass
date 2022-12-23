@@ -9,7 +9,8 @@ trigger SalesforceProjectTrigger on Salesforce_Project__c (before insert, before
    /*  if (trigger.isAfter && trigger.isInsert) {
         SalesforceProjectTriggerHandler.createDefaultTicket(trigger.new);
     } */
-if (trigger.isBefore && trigger.isInsert) {
+
+/* if (trigger.isBefore && trigger.isInsert) {
     for (Salesforce_Project__c eachSp : trigger.new) {
         eachSp.Project_Name__c = 'New Trigger Project';
         System.debug(eachSp.Project_Name__c);
@@ -23,6 +24,10 @@ if (trigger.isAfter && trigger.isUpdate) {
     for( Id eachSf : sfIDS) {
         System.debug('Proje ESKI Ismi => '+ sfOldMap.get(eachSf).Project_Name__c+', Proje YENI Ismi => '+ sfNewMap.get(eachSf).Project_Name__c);
     }
+}
+ */
+if (trigger.isBefore && trigger.isUpdate) {
+    SalesforceProjectTriggerHandler.completeSPvalidation(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
 }
 
 

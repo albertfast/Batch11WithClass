@@ -1,0 +1,1 @@
+SoqlVideo2.fetchOppsAndAccount();
