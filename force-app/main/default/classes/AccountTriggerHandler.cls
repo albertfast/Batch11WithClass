@@ -1,4 +1,4 @@
-public class AccountTriggerHandler {
+public with sharing class AccountTriggerHandler {
  /* Mark the Status of field on Contact as Required. 
 1.	On Account Trigger, for before insert try to create a contact record. 
 2.	Make status field as Required on the Contact Object. 
