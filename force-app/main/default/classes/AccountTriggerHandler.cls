@@ -1,5 +1,36 @@
 public class AccountTriggerHandler {
-  public static void updateDescription(List<Account> accTriggerNew, List<account> accTriggerOld,
+ /* Mark the Status of field on Contact as Required. 
+1.	On Account Trigger, for before insert try to create a contact record. 
+2.	Make status field as Required on the Contact Object. 
+3.	Throw an error message if the status is missing from the trigger. 
+*/
+        public static void tryException(List<Account> accTriggerNew) {
+            try {
+    
+                    List<Contact> listCon = new List<Contact>();
+                    for (account eachAcc : accTriggerNew) {
+                        Contact cn = new Contact();
+                        cn.LastName = 'Exception Try';
+                        cn.AccountId = eachAcc.Id;
+                        listCon.add(cn);
+                    }
+                    if (!listCon.isEmpty()) {
+                       insert listCon;
+                    }
+                
+            } catch (Exception ex) {
+                for (Account ac : accTriggerNew) {
+                    ac.addError('Status field is required!');
+                }
+                  
+            }
+                
+        }
+ 
+ 
+ 
+ 
+    public static void updateDescription(List<Account> accTriggerNew, List<account> accTriggerOld,
                               Map<id, account> accTriggerNewMap, Map<id, account> accTriggerOldMap) {
       for (account eachAcc : accTriggerNew) {
           boolean updateDesc = false;

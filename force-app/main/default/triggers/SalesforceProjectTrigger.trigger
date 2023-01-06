@@ -6,18 +6,25 @@
 
 
 trigger SalesforceProjectTrigger on Salesforce_Project__c (before insert, before update,after insert, after update) {
-   /*  if (trigger.isAfter && trigger.isInsert) {
+     if (trigger.isAfter && trigger.isInsert) {
         SalesforceProjectTriggerHandler.createDefaultTicket(trigger.new);
-    } */
+
+        //call future method
+        System.debug('calling future nethod NOW ');
+        Map<Id,Salesforce_Project__c> spNewMap = trigger.newMap;
+        SalesforceProjectTriggerHandler.spUpdateDescription(spNewMap.keySet());
+        System.debug('calling future nethod done ');
+    } 
 
 /* if (trigger.isBefore && trigger.isInsert) {
     for (Salesforce_Project__c eachSp : trigger.new) {
         eachSp.Project_Name__c = 'New Trigger Project';
         System.debug(eachSp.Project_Name__c);
     }
-}
+} */
 if (trigger.isAfter && trigger.isUpdate) {
-    Map<Id,Salesforce_Project__c> sfNewMap = trigger.newMap;
+    SalesforceProjectTriggerHandler.spStatusCompleted(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
+   /* Map<Id,Salesforce_Project__c> sfNewMap = trigger.newMap;
     Map<Id,Salesforce_Project__c> sfOldMap = trigger.oldMap;
 
     Set<id> sfIDS = sfNewMap.keySet();
@@ -31,4 +38,5 @@ if (trigger.isBefore && trigger.isUpdate) {
 }
 
 
+}
 }

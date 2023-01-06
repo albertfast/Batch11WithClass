@@ -13,7 +13,8 @@ public class ContactTriggerHandler {
         for (contact eachContact : conTriggerNew){
             Contact oldContact = conTriggerOldMap.get(eachContact.id);
             if (eachContact.Leadsource != oldContact.LeadSource) {
-                eachContact.LeadSource.addError('Cannot update lead source. Please user! ');
+                String customError = System.label.ContactValidation2;
+                eachContact.LeadSource.addError(customError);
             }
         }
     }

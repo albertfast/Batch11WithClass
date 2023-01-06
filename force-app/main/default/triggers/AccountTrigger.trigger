@@ -1,5 +1,27 @@
 trigger AccountTrigger on Account (before insert, before update,after insert, after update) {
-  
+
+    /*
+    if (trigger.isBefore && trigger.isInsert) {
+        AccountTriggerHandler.tryException(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
+    }
+       */
+   
+    /*
+    if (trigger.isAfter && trigger.isUpdate) {
+        Map<Id,Account> accNewMap = trigger.newMap;
+        AccountHelper.checkSizeConOnAcc(accNewMap.keySet());
+    }
+    if ( trigger.isAfter && trigger.isInsert) {
+        Map<Id,Account> accNewMap = trigger.newMap;
+        AccountHelper.checkSizeConOnAcc(accNewMap.keySet());
+    } */
+   
+    /*
+    if (trigger.isAfter && trigger.isInsert) {
+        AccountHandler_assg.makeContact(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
+    }
+     */
+    /*
     if (trigger.isBefore) {
         AccountTriggerHandler.updateDescription(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
     }
@@ -7,7 +29,11 @@ trigger AccountTrigger on Account (before insert, before update,after insert, af
         //Here we call handler method to update all contacts VIP
         AccountTriggerHandler.updateVIPforContacts(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
     }
-
+    if (Trigger.isAfter && Trigger.isInsert) {
+        AccountQueueableExample aq = new AccountQueueableExample(trigger.new);
+        id jobId = system.enqueueJob(aq);
+    }
+        */
   
   
   
