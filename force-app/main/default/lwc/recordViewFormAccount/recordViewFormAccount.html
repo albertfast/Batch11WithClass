@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title= "Record View Form - Account"
+    icon-name= "standard:budget_category_value">
+        <div class="slds-var-m-around_medium" >
+            <lightning-record-view-form
+                object-api-name= {objectName}
+                record-id= {recordId}>
+            <lightning-output-field 
+                field-name={fields.Name}>
+            </lightning-output-field>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning-output-field 
+                    field-name={fields.Type}>
+                </lightning-output-field>
+                <lightning-output-field 
+                    field-name={fields.AnnualRevenue}>
+                </lightning-output-field>
+                </div>
+                <div class="slds-col">
+                    <lightning-output-field 
+                    field-name={fields.Industry}>
+                </lightning-output-field>
+                <lightning-output-field 
+                    field-name={fields.Rating}>
+                </lightning-output-field>
+                </div>
+            </div>
+        </lightning-record-view-form>
+        </div>
+    </lightning-card>
+</template>

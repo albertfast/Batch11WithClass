@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Get Picklist Values By Record Type - Opportunity">
+        <div class = "slds-var-m-around_medium">
+            <lightning-combobox
+            label = "Select the Stage"  
+            name="StageName"
+            options= {StageNameOptions}
+            onchange={changeHandler}>
+        </lightning-combobox>
+        <template lwc:if = {isSelected}>
+            <div class = "slds-var-m-top_small">
+                Current Stage = {selectedStage}
+            </div>
+        </template>
+        <lightning-combobox
+        label = "Select the Lead Source"
+        name="LeadSource"
+        options= {LeadSourceOptions}
+        onchange={changeHandler2}>
+    </lightning-combobox>
+    <template lwc:if = {isSelected}>
+        <div class = "slds-var-m-top_small">
+            Current Lead Source = {selectedLead}
+        </div>
+    </template>
+        </div>
+    </lightning-card>
+</template>
+
+<!--UseCase-2 : Get the picklist values of StageName & LeadSource from Opportunity object and create comboboxes using the same. When user makes a selection, display the selected values-->

@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Get Picklist Values By Record Type - Account">
+        <div class = "slds-var-m-around_medium">
+            <lightning-combobox
+            label = "Select the Type"
+            name="Type"
+            options= {typeOptions}
+            onchange={changeHandler}>
+        </lightning-combobox>
+        <template lwc:if = {isSelected}>
+            <div class = "slds-var-m-top_small">
+                Current Type = {selectedType}
+            </div>
+        </template>
+        <lightning-combobox
+            label = "Select the Rating"
+            name="Rating"
+            options= {ratingOptions}
+            onchange={changeHandler2}>
+        </lightning-combobox>
+        <template lwc:if = {isSelected}>
+            <div class = "slds-var-m-top_small">
+                Current Rating = {selectedRating}
+            </div>
+        </template>
+        </div>
+    </lightning-card> 
+</template>
+
+<!--UseCase-1 : In "getPickListValuesByRecordTypeAccount" component add output lines for Type and Rating. Whenever user select any option from comboboxes display the selected options by using conditional rendering.--> 

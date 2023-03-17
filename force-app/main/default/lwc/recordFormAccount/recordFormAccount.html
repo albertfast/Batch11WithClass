@@ -1,0 +1,16 @@
+<template>
+   <lightning-card title = "Lightning Record Form Account"
+   icon-name= "standard:budget_category_value">
+     <div class = "slds-var-m-around_medium">
+        <lightning-record-form
+            object-api-name= {objectName}
+            fields= {accFields}
+            record-id = {recordId}
+            mode = "edit"
+            columns="2"
+            onsuccess={succesHandler}
+            onerror= {errorHandler}>
+        </lightning-record-form>
+     </div>
+   </lightning-card> 
+</template>

@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title="Create Record - Account" icon-name="standard:account">
+        <div class = "slds-var-m-around_medium">
+            <form class="accountform">
+                <lightning-input
+                    type = "text"
+                    label = "Account Name"
+                    value = {anyData}
+                    name = "Name"
+                    onchange = {changeHandler}>
+                </lightning-input>
+                <lightning-input
+                    type = "text"
+                    label = "Industry"
+                    value = {anyData}
+                    name = "Industry"
+                    onchange = {changeHandler}>
+                </lightning-input>
+                <lightning-input
+                    type = "number"
+                    label = "Annual Revenue"
+                    value = {anyData}
+                    name = "AnnualRevenue"
+                    onchange = {changeHandler}>
+                </lightning-input>
+                <div class="slds-var-m-top_small slds-align_absolute-center">
+                    <lightning-button
+                        label = "Cancel"
+                        variant = "neutral"
+                        class="slds-var-m-right_x-small"
+                        onclick={cancelAccount}>
+                    </lightning-button>
+                    <lightning-button
+                        label = "Create Account"
+                        variant = "brand"
+                        onclick={saveAccount}>
+                    </lightning-button>
+                </div>
+            </form>
+        </div>
+    </lightning-card>
+</template>
