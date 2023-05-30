@@ -1,8 +1,14 @@
-trigger AccountTrigger on Account (before insert, before update,after insert, after update) {
+trigger AccountTrigger on Account (before delete, before insert, before update,after insert, after update) {
   
     if (trigger.isBefore) {
         System.debug('Before insert/update trigger on Account object');
         AccountTriggerHandler.updateDescription(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
+    }
+
+    if (Trigger.isBefore) {
+        if (Trigger.isDelete) {
+            AccountTriggerHandler.beforeDelete(Trigger.oldMap);
+        }        
     }
   
   

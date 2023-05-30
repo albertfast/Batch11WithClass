@@ -26,6 +26,20 @@ public class AccountTriggerHandler {
           }
       }
   }
+  public static void beforeDelete(Map<Id,Account> oldAccounts) {
+    //collect all the contacts, case & opps
+    List<Contact> contacts = [SELECT Id FROM Contact WHERE AccountId IN :oldAccounts.keySet()];
+    List<Case> cases = [SELECT Id FROM Case WHERE AccountId IN :oldAccounts.keySet()];
+    List<Opportunity> Opportunities = [SELECT Id FROM Opportunity WHERE AccountId IN :oldAccounts.keySet()];
+    //delete all records
+    try{
+        delete contacts;
+        delete cases;
+        delete Opportunities;
+    } catch(Exception ex){
+        System.debug(ex.getMessage());
+    }
+}
 }
 
 
