@@ -2,7 +2,6 @@ public class SalesforceProjectTriggerHandler {
     public static void createDefaultTicket(List<salesforce_project__c> spTriggerNew) {
     try {
             
-            
             List<Salesforce_Ticket__c>  listST = new List<Salesforce_Ticket__c>();
             //Get the default ORG value using 'getOrgDefaults' method of custom settings.
             DefaultTicketInfo__c defaultValues = DefaultTicketInfo__c.getOrgDefaults();

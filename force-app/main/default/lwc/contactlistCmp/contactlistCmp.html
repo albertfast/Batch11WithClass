@@ -1,0 +1,24 @@
+<template>
+    <template if:true={showAccount}>
+        <lightning-card title="Acc List With Contact" icon-name="standard:account">
+            <div class="slds-var-m-around_medium">
+                <template for:each={accList} for:item="account">
+                    <lightning-card key = {account.Name} icon-name="standard:account">
+                        <p>{account.Name}</p>
+                    </lightning-card>
+                </template>
+                
+            </div>
+        </lightning-card>
+
+    </template>
+   <lightning-input 
+    type="checkbox" 
+    label = 'Show Account' 
+    checked={showAccount} 
+    onchange={handlechange}>
+    </lightning-input>
+   <!-- <lightning-button label="get Account List" onclick={getAccList}>  </lightning-button> --> 
+
+   
+</template>
