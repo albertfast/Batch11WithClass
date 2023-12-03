@@ -14,7 +14,7 @@ global without sharing class ChatGPTClass {
         httpReq.setEndpoint('https://api.openai.com/v1/chat/completions');
         httpReq.setMethod('POST');
         httpReq.setHeader('Content-Type', 'application/json');
-        httpReq.setHeader('Authorization', 'Bearer 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');
+        httpReq.setHeader('Authorization', 'Bearer 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');
         httpReq.setTimeout(60000); // Set timeout to 60 seconds (adjust as needed)
 
         String body = '{'+
