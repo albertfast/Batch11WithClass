@@ -1,0 +1,11 @@
+<!-- SpotifyPlayer.html -->
+<template>
+    <div>
+        <h1>Spotify Player</h1>
+        <audio controls>
+            <source src={spotifyTrackPreviewUrl} type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <button onclick={handlePlayClick} disabled={isAudioPlaying}>Play</button>
+    </div>
+</template>
