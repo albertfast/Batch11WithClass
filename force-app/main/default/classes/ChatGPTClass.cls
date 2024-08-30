@@ -1,21 +1,22 @@
 global without sharing class ChatGPTClass {
     
     @AuraEnabled
-    global static string generateResponseFromGPT(String queryText, OpenAiSecretKey__c setting){
+    global static string generateResponseFromGPT(String queryText, OpenAiSecretKey__c settings){
         try {
-            String content = generateResponse(queryText, setting);
+            String content = generateResponse(queryText, settings);
             return content;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
     }
     
-    global static String generateResponse(String queryText, OpenAiSecretKey__c setting){
+    OpenAiSecretKey__c settings = OpenAiSecretKey__c.getOrgDefaults();
+    global static String generateResponse(String queryText, OpenAiSecretKey__c settings){
         HttpRequest httpReq = new HttpRequest();
-        httpReq.setEndpoint('callout:openAI'+'/v1/chat/completions');
+        httpReq.setEndpoint('callout:openAI');
         httpReq.setMethod('POST');
         httpReq.setHeader('Content-Type', 'application/json');
-        httpReq.setHeader('Authorization', 'Bearer ' + setting.Authorization__c);
+        httpReq.setHeader('Authorization', 'Bearer ' +settings.Authorization__c);
         httpReq.setTimeout(60000); // Set timeout to 60 seconds (adjust as needed)
 
         String body = '{'+
